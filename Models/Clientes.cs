@@ -7,12 +7,15 @@ using SQLite;
 
 namespace MauiApp1.Models
 {
-    [Table("Clientes ")]
+    [Table("Clientes")]
     public partial class Clientes
     {
         [PrimaryKey][AutoIncrement]
         public Int32 Id { get; set; }
         [Unique, MaxLength(100)]
-        public String Nome { get; set; }
+        public String Clinom { get; set; }
+        [Unique]
+        public Int32 ClinomId { get; set; }
+
     }
 }

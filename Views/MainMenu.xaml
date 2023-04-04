@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.MainMenu"
+             Title="MainMenu">
+    <VerticalStackLayout>
+        <Label 
+            Text="Main Menu"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Padding="10"
+            BackgroundColor="Transparent"/>
+            
+        <HorizontalStackLayout BackgroundColor="AliceBlue"
+                               HeightRequest="100">
+            <Button
+                HeightRequest="50"
+                WidthRequest="100"
+                Margin="10"
+                Text="Cliente"
+                Clicked="Button_Clicked"
+             />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

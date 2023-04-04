@@ -44,8 +44,20 @@ build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Resources.Styles.
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/User/source/repos/MauiApp1/MauiApp1/Views/ListClient.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.ListClient.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ListClient.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ListClient.xaml
+
 [C:/Users/User/source/repos/MauiApp1/MauiApp1/Views/Login.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.Login.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Login.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Login.xaml
+
+[C:/Users/User/source/repos/MauiApp1/MauiApp1/Views/MainMenu.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Views.MainMenu.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MainMenu.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MainMenu.xaml

@@ -6,26 +6,41 @@ using System.Threading.Tasks;
 
 using SQLite;
 using MauiApp1.Models;
+using MauiApp1.Repositories;
+using MauiApp1.Models.Mapping;
+using System.Reflection.Metadata;
+using MauiApp1.Services;
+using System.Collections.ObjectModel;
 
 namespace MauiApp1.Repositories
 {
     internal class ClientesRepository
     {
 
-        string _dbPath;
+        private SQLiteAsyncConnection Database;
+        
+        RestService _service;
+        Mapping _mapping;
 
-        private SQLiteConnection conn;
-
-        private void Init()
+        async Task Init()
         {
-            if (conn is not null)
+
+            if (Database is not null)
                 return;
 
-
-            conn = new SQLiteConnection(_dbPath);
-            conn.CreateTable<Clientes>();
+            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            Database.CreateTableAsync<Clientes>();
 
         }
+
+        public async Task<int> InsertClientData(Mapping mapping)
+        {
+            await Init();
+
+            _service = new RestService();
+
+            return await Database.InsertAsync(mapping);
+        } 
 
 
     }

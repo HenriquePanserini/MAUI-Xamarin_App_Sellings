@@ -31,7 +31,7 @@ public partial class Login : ContentPage
 				try 
 				{
 					var toast = Toast.Make("Bem-vindo!", ToastDuration.Long ,14);
-					await Navigation.PushModalAsync(new MainPage());
+					await Navigation.PushModalAsync(new MainMenu());
 
 				}catch(Exception ex)
 				{
@@ -52,7 +52,7 @@ public partial class Login : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
 
-
+		Button_Clicked_task(sender, e);
 
     }
 }

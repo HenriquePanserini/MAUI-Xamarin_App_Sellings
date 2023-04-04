@@ -1,12 +1,14 @@
-﻿using MauiApp1.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using MauiApp1.Repositories;
 using System.Diagnostics;
+
+using MauiApp1.Models;
+using MauiApp1.Models.Mapping;
+using MauiApp1.Repositories;
 
 namespace MauiApp1.Services
 {
@@ -15,9 +17,9 @@ namespace MauiApp1.Services
        
         HttpClient _httpClient;
         JsonSerializerOptions _serializerOptions;
-        Constants url;
+        ClientesRepository _clienteRepository;
 
-        private List<Clientes> clientes { get; set; }
+        private List<Mapping> mapping { get; set; }
 
         public RestService()
         {
@@ -30,32 +32,39 @@ namespace MauiApp1.Services
 
         }
 
-        public async Task<List<Clientes>> GetAllClientes()
+        public async Task<List<Mapping>> GetAllClientes()
         {
-            clientes = new List<Clientes>();
-            url = new Constants();
 
-            Uri uri = new Uri(string.Format(url.URL_KEY, string.Empty));
+            mapping = new List<Mapping>();
+
+            Uri uri = new Uri(string.Format(Constants.URL_KEY, string.Empty));
+
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
+
                     string content = await response.Content.ReadAsStringAsync();
-                    clientes = JsonSerializer.Deserialize<List<Clientes>>(content, _serializerOptions);
+                    mapping = JsonSerializer.Deserialize<List<Mapping>>(content, _serializerOptions);
+
                 }
+
             }catch(Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-            return clientes;
+
+
+            return mapping;
         }
-        public Task<Clientes> GetClienteById(int id)
+
+        public Task<Mapping> GetClienteById(int id)
         {
             throw new NotImplementedException();
         }
-        public Task<Clientes> AddCliente(Clientes cliente)
+        public Task<Mapping> AddCliente(Clientes cliente)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +74,7 @@ namespace MauiApp1.Services
             throw new NotImplementedException();
         }
 
-        public Task<Clientes> UpdateCliente(int id, Clientes cliente)
+        public Task<Mapping> UpdateCliente(int id, Clientes cliente)
         {
             throw new NotImplementedException();
         }
