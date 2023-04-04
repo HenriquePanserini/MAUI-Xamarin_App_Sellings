@@ -17,7 +17,7 @@ namespace MauiApp1.Services
        
         HttpClient _httpClient;
         JsonSerializerOptions _serializerOptions;
-        ClientesRepository _clienteRepository;
+        ClientesRepository _clientesRepository;
 
         private List<Mapping> mapping { get; set; }
 
@@ -29,6 +29,8 @@ namespace MauiApp1.Services
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true
             };
+
+            _clientesRepository = new ClientesRepository();
 
         }
 
@@ -55,7 +57,7 @@ namespace MauiApp1.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-
+            await _clientesRepository.InsertClientData(mapping);
 
             return mapping;
         }
