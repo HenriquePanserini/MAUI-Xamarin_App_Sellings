@@ -33,13 +33,13 @@ namespace MauiApp1.Repositories
 
         }
 
-        public async Task<int> InsertClientData(Mapping mapping)
+        public async Task InsertClientData(List<Mapping> mapping)
         {
             await Init();
 
             _service = new RestService();
 
-            return await Database.InsertAsync(mapping);
+            await Database.InsertAsync(mapping);
         } 
 
 
