@@ -1,8 +1,11 @@
+using MauiApp1.Services;
 
 namespace MauiApp1.Views;
 
 public partial class MainMenu : ContentPage
 {
+	MessageService _messageService;
+
 	public MainMenu()
 	{
 		InitializeComponent();
@@ -13,11 +16,13 @@ public partial class MainMenu : ContentPage
 		try
 		{
 
+            await Navigation.PushModalAsync(new ListClient());
 
 
-		}catch(Exception ex)
+        }
+        catch(Exception ex)
 		{
-
-		}
+            _messageService.ShowAsync("Erro", "Erro ao acessar a pagina", "Ok");
+        }
     }
 }

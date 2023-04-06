@@ -8,7 +8,7 @@ namespace MauiApp1.Repositories
 {
     internal static class Constants
     {
-        public static string URL_KEY = "http:// 192.168.0.162:3000/";
+        public static string URL_KEY = "http://192.168.0.101:3000/cliente";
 
         public static string DatabaseFilename = "dados.db3";
 

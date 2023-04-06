@@ -11,21 +11,22 @@ namespace MauiApp1.Views;
 public partial class ListClient : ContentPage
 {
     public ObservableCollection<Mapping> _mapping;
+    private readonly HttpClient _https = new HttpClient();
 
-    ClientesRepository _ClientesRepository;
     RestService _restService;
 
     protected override async void OnAppearing()
     {
         _restService = new RestService();
 
-        string content = Convert.ToString(_restService.GetAllClientes());
+        string content = await _https.GetStringAsync(Constants.URL_KEY);
 
         List<Mapping> map = JsonConvert.DeserializeObject<List<Mapping>>(content);
 
         _mapping = new ObservableCollection<Mapping>(map);
 
-        ClientsData.ItemsSource = _mapping;
+        ClientNome.ItemsSource = _mapping;
+        
         base.OnAppearing();
     }
 }

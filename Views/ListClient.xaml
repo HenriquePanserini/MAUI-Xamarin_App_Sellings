@@ -4,34 +4,14 @@
              xmlns:local="clr-namespace:MauiApp1"
              x:Class="MauiApp1.Views.ListClient"
              BackgroundImageSource="backapp.png"
-             Title="ListCleint">
+             Title="ListClient">
     <VerticalStackLayout>
-        <ListView x:Name="ClientsData">
+        <ListView x:Name="ClientNome">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1"    
-                                   Text="{Binding ClinomId}"
-                                   FontAttributes="Bold"
-                            />
-                            <Label Grid.Row="1"
-                                   Text="{Binding Clinom}"
-                                   VerticalOptions="End"
-                            />
-                        </Grid>
-                    </ViewCell>
+                    <TextCell Text="{ Binding Clinom }" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </VerticalStackLayout>
 </ContentPage>
